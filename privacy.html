@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hfa — Privacy Policy</title>
+<meta name="description" content="Privacy policy for hfa, a personal alerts and household-coordination application operated by an individual sole proprietor for personal and household use.">
+<style>
+  :root {
+    --fg: #1a1a1a;
+    --muted: #555;
+    --bg: #fff;
+    --rule: #e2e2e2;
+    --accent: #0a4d8c;
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    margin: 0;
+    padding: 2rem 1.25rem 4rem;
+    line-height: 1.55;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  header .nav { font-size: 0.875rem; margin-bottom: 0.75rem; }
+  header .nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+  header .nav a:hover { text-decoration: underline; }
+  h1 { font-size: 1.65rem; margin: 0 0 0.25rem; }
+  .updated { color: var(--muted); font-size: 0.875rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.25rem; }
+  ul { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  code { background: #f4f4f4; padding: 0 0.25rem; border-radius: 3px; font-size: 0.92em; }
+  a { color: var(--accent); }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.875rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="./">Home</a>
+    <a href="./privacy">Privacy</a>
+    <a href="./terms">Terms</a>
+  </nav>
+  <h1>hfa — Privacy Policy</h1>
+  <p class="updated">Last updated: 2026-05-01</p>
+</header>
+
+<h2>Who this is for</h2>
+<p>
+  <strong>hfa</strong> is a personal alerts and
+  household-coordination application operated by a single
+  individual (the brand owner) for their own personal and
+  household use. The "recipients" of any SMS sent by
+  this system are limited to:
+</p>
+<ul>
+  <li>The brand owner (Garret Holland)</li>
+  <li>Members of the brand owner's immediate household (spouse, children)</li>
+  <li>A small number of close family members who have verbally
+    consented to receive household-coordination messages (e.g.,
+    grandparents or other immediate relatives added to a kids'
+    sports-schedule alert). The list is bounded by family
+    relationship and is never expanded to anyone outside of family.</li>
+</ul>
+<p>
+  The current recipient count is approximately 4, with modest
+  expansion expected over time as additional family members opt in
+  for household coordination. There are no external users,
+  customers, or commercial recipients.
+</p>
+
+<h2>What data is sent over SMS</h2>
+<p>
+  The system sends short text messages to a small set of phone
+  numbers configured in the application's secret store. Messages
+  contain:
+</p>
+<ol>
+  <li><strong>Account-related notifications</strong> — alerts when
+    an integrated financial service (e.g., RocketMoney, Plaid,
+    Sequence, Google Sheets) requires the brand owner's attention.
+    Examples: "RM scrape failed — session expired";
+    "stack-monitor: plaid red".</li>
+  <li><strong>Verification codes</strong> — one-time codes during
+    re-authentication flows that the brand owner initiates from
+    their phone.</li>
+  <li><strong>Service health alerts and periodic summaries</strong>
+    — daily-digest excerpts, anomaly notices, structural cashflow
+    warnings.</li>
+  <li><strong>Household coordination messages</strong> — calendar
+    reminders, schedule changes, family logistics shared with
+    household members.</li>
+</ol>
+
+<h2>What data is NOT sent</h2>
+<ul>
+  <li>No account numbers, full credit-card numbers, SSNs, or other
+    sensitive PII.</li>
+  <li>No marketing, promotional, or commercial content of any kind.</li>
+  <li>No content related to lending, age-gated material, or
+    third-party products.</li>
+</ul>
+
+<h2>How phone numbers are stored</h2>
+<p>
+  Recipient phone numbers live in Google Secret Manager
+  (<code>garret-phone-number</code> and analogous secrets for
+  household members). They are mounted as environment variables on
+  the Cloud Run service / jobs at runtime. Numbers are never logged,
+  never written to disk, and never appear in scratch files, terminal
+  output, or chat transcripts.
+</p>
+
+<h2>Data sharing</h2>
+<p>
+  Phone numbers and message bodies are routed through
+  <strong>Twilio</strong>, the SMS service provider, per Twilio's
+  own privacy policy
+  (<a href="https://www.twilio.com/legal/privacy">https://www.twilio.com/legal/privacy</a>).
+  No data is shared with any other third party. The system does not
+  engage in marketing, retargeting, analytics-as-a-service,
+  advertising networks, or sale/rental of data.
+</p>
+
+<h2>Opt-out</h2>
+<p>Recipients can opt out at any time by:</p>
+<ul>
+  <li>Replying <strong>STOP</strong> to any message — Twilio honors
+    this immediately and permanently.</li>
+  <li>Asking the brand owner to remove the recipient's phone number
+    from the application configuration. Removal is immediate and
+    irreversible without renewed verbal consent.</li>
+</ul>
+<p>
+  Replying <strong>HELP</strong> to any message returns brand-owner
+  contact information.
+</p>
+
+<h2>SMS-specific disclosures</h2>
+<p>
+  The following disclosures apply to all SMS messages sent by this
+  program (required by U.S. carrier compliance / A2P 10DLC review):
+</p>
+<ul>
+  <li><strong>Mobile information sharing.</strong> Mobile phone
+    numbers and SMS opt-in data are not shared with third parties
+    or affiliates for marketing or promotional purposes. Phone
+    numbers are routed only through Twilio (the SMS service
+    provider) for the sole purpose of message delivery, per
+    Twilio's privacy policy
+    (<a href="https://www.twilio.com/legal/privacy">https://www.twilio.com/legal/privacy</a>).</li>
+  <li><strong>Message frequency.</strong> Approximately 30–50
+    messages per month per recipient under normal operation
+    (roughly one daily household-coordination message per
+    recipient, plus up to ~20 additional account-health alerts per
+    month directed only to the brand owner's number). Frequency may
+    temporarily increase during exceptional circumstances (e.g., a
+    connector outage triggering several alerts in one day).</li>
+  <li><strong>Message and data rates.</strong> Message and data
+    rates may apply per the recipient's wireless carrier plan.
+    Recipients are responsible for any charges from their carrier.</li>
+  <li><strong>HELP / STOP.</strong> Reply <strong>HELP</strong> at
+    any time to receive brand-owner contact information. Reply
+    <strong>STOP</strong> at any time to opt out of all future
+    messages. Opt-out is immediate and permanent; Twilio honors
+    STOP requests at the carrier level.</li>
+</ul>
+
+<h2>Contact</h2>
+<p>
+  Questions about this policy:
+  <a href="mailto:garret.holland@gmail.com">garret.holland@gmail.com</a>.
+</p>
+
+<footer>
+  See also: <a href="./terms">Terms and Conditions</a>.
+</footer>
+</body>
+</html>
