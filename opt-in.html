@@ -81,7 +81,7 @@
   <dt>Operated by</dt><dd>Garret Holland (individual sole proprietor)</dd>
   <dt>Use case</dt><dd>Personal alerts and household-coordination SMS (low volume, mixed)</dd>
   <dt>Recipients</dt><dd>Approximately 4 &mdash; the brand owner and members of his immediate household plus a small number of close family members. The list is bounded by family relationship and is never expanded to anyone outside of family.</dd>
-  <dt>Message types</dt><dd>Account-health alerts; one-time verification codes during re-authentication; periodic financial summaries; household coordination (calendar reminders, schedule changes, kids' sports schedule, family logistics). Some household-coordination messages contain hyperlinks to maps, calendar events, or public webpages relevant to family logistics &mdash; see the <a href="#links-in-messages">Links in messages</a> section below for the full link policy.</dd>
+  <dt>Message types</dt><dd>Account-health alerts; one-time verification codes during re-authentication; periodic financial summaries; household coordination (calendar reminders, schedule changes, kids' sports schedule, family logistics). Some household-coordination messages contain hyperlinks to maps (Google Maps, Apple Maps, Waze), calendar events, or public informational webpages relevant to family logistics &mdash; e.g. a sports tournament bracket, a club's posted schedule, a school event page &mdash; see the <a href="#links-in-messages">Links in messages</a> section below for the full link policy.</dd>
   <dt>Message frequency</dt><dd>Approximately <strong>30&ndash;50 messages per month</strong> per recipient under normal operation. Frequency may temporarily increase during exceptional circumstances (e.g., a connector outage triggering several alerts in one day).</dd>
   <dt>Message and data rates</dt><dd><strong>Message and data rates may apply</strong> per the recipient's wireless carrier plan.</dd>
   <dt>HELP</dt><dd>Reply <strong>HELP</strong> to any message to receive brand-owner contact information.</dd>
@@ -153,13 +153,14 @@
   "I'm going to add your number to a personal alert system I run.
   It'll text you about household coordination &mdash; calendar
   reminders, schedule changes, kids' sports schedule, occasional
-  family logistics. Some messages will include links, like a Google
-  Maps link for a game location or a calendar event link. Roughly
-  one message a day, so 30 to 50 a month. You can reply STOP at
-  any time to opt out, or just tell me to remove your number and
-  I will. Standard message and data rates from your carrier apply.
-  The privacy policy and terms for the program are posted publicly
-  at garretholland.github.io/hfa-mcp-docs."
+  family logistics. Some messages will include links, like a maps
+  link for a game location, a calendar event link, or a tournament
+  or league webpage with the posted schedule. Roughly one message
+  a day, so 30 to 50 a month. You can reply STOP at any time to
+  opt out, or just tell me to remove your number and I will.
+  Standard message and data rates from your carrier apply. The
+  privacy policy and terms for the program are posted publicly at
+  garretholland.github.io/hfa-mcp-docs."
 </blockquote>
 
 <h3>Welcome SMS template (sent immediately after the recipient's number is added)</h3>
@@ -201,25 +202,49 @@
 <p>
   Some household-coordination messages contain hyperlinks so that
   recipients can navigate to event locations, open calendar events,
-  or read public information about a kids' sports league or school
-  activity. Permitted link types:
+  or read public information posted by a kids' sports league, a
+  tournament organizer, a school, or a parks department. Permitted
+  link types:
 </p>
 
 <ul>
-  <li><strong>Google Maps locations</strong> &mdash; full URLs (<code>https://www.google.com/maps/place/&hellip;</code>) or Google's own short-link format (<code>https://maps.app.goo.gl/&hellip;</code>) for game, practice, or event addresses.</li>
-  <li><strong>Apple Maps locations</strong> &mdash; <code>https://maps.apple.com/&hellip;</code> when shared from iOS devices.</li>
-  <li><strong>Google Calendar event links</strong> &mdash; <code>https://calendar.google.com/&hellip;</code> for household calendar invites.</li>
-  <li><strong>Public webpages</strong> related to household logistics, e.g., a kids' sports league schedule page, a school event page, or a parks-department field-status page. Links are to publicly-accessible non-commercial pages only.</li>
+  <li>
+    <strong>Map locations.</strong>
+    <ul>
+      <li>Google Maps &mdash; full URLs (<code>https://www.google.com/maps/place/&hellip;</code>) or Google's own short-link format (<code>https://maps.app.goo.gl/&hellip;</code>) for game, practice, or event addresses.</li>
+      <li>Apple Maps &mdash; <code>https://maps.apple.com/&hellip;</code> when shared from iOS devices.</li>
+      <li>Waze (Google-owned) &mdash; <code>https://waze.com/ul/&hellip;</code> or <code>https://www.waze.com/ul/&hellip;</code> when navigation guidance is helpful.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Calendar event links.</strong>
+    <ul>
+      <li>Google Calendar &mdash; <code>https://calendar.google.com/&hellip;</code>.</li>
+      <li>Apple Calendar / iCloud-shared event links.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Public informational webpages relevant to household logistics</strong>, including but not limited to:
+    <ul>
+      <li>Sports league schedule pages (AAU, club soccer, USSF, AYSO, Little League, etc.) on the league's own domain.</li>
+      <li>Tournament organizer pages (brackets, schedules, locations, weather updates) on the tournament's own domain.</li>
+      <li>School district websites &mdash; school calendars, event pages, early-dismissal notices, class-schedule pages.</li>
+      <li>Parks-department or field-association field-status / weather-cancellation pages.</li>
+      <li>Coach-posted practice rosters, game-day notes, or carpool sign-ups on a publicly-accessible page.</li>
+    </ul>
+    All webpage links are to publicly-accessible non-commercial pages relevant to a specific household-logistics need that the recipient already has context for.
+  </li>
 </ul>
 
 <p>This program does <strong>not</strong> use:</p>
 
 <ul>
-  <li>Public URL shorteners such as <code>bit.ly</code>, <code>tinyurl.com</code>, <code>ow.ly</code>, <code>t.co</code>, <code>buff.ly</code>, or any third-party shortening service.</li>
+  <li>Public URL shorteners such as <code>bit.ly</code>, <code>tinyurl.com</code>, <code>ow.ly</code>, <code>t.co</code>, <code>buff.ly</code>, or any third-party shortening service. (First-party brand-owned short links from the destination operator &mdash; e.g. <code>maps.app.goo.gl</code> from Google or <code>waze.com/ul</code> from Waze &mdash; are NOT third-party shorteners and are permitted.)</li>
   <li>Affiliate, referral, or commission links.</li>
   <li>Marketing, promotional, or commercial links of any kind.</li>
   <li>Redirect chains or links to age-gated content (alcohol, tobacco, firearms, gambling, or other content restricted by carrier or CTIA guidelines).</li>
   <li>Links to lending, loan, or financial-product origination pages.</li>
+  <li>Links into the brand owner's own products, services, or commercial offerings (the brand owner does not operate any commercial business that would be linked from this program).</li>
 </ul>
 
 <h2>Sample messages</h2>
@@ -231,6 +256,7 @@
   <li><code>hfa: Stack monitor &mdash; plaid red, last sync 2d ago. Reply STOP to opt out.</code></li>
   <li><code>hfa: Reminder: AAU practice tonight 6pm at the high school. Reply STOP to opt out.</code></li>
   <li><code>hfa: Saturday game at City Park 10am. Map: https://maps.app.goo.gl/exampleabc123. Reply STOP to opt out.</code></li>
+  <li><code>hfa: AAU Sept tournament bracket posted: https://example-aau-tournament.org/sept2026/bracket. Reply STOP to opt out.</code></li>
   <li><code>hfa: Reminder: Champions tuition due Friday. Reply STOP to opt out.</code></li>
 </ul>
 
