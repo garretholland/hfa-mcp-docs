@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>hfa — Privacy Policy</title>
-<meta name="description" content="Privacy policy for hfa, a personal alerts and household-coordination application operated by an individual sole proprietor for personal and household use.">
+<meta name="description" content="Privacy policy for hfa, a family-life-management application that sends its opted-in users account/financial alerts and schedule reminders.">
 <style>
   :root {
     --fg: #1a1a1a;
@@ -54,34 +54,23 @@
 
 <h2>Who this is for</h2>
 <p>
-  <strong>hfa</strong> is a personal alerts and
-  household-coordination application operated by a single
-  individual (the brand owner) for their own personal and
-  household use. The "recipients" of any SMS sent by
-  this system are limited to:
+  <strong>hfa</strong> is a family-life-management application that
+  consolidates household finances, budgets, bills, and schedules. This
+  SMS program sends the application's notifications to its opted-in
+  users: account/financial alerts and schedule/event reminders. Every
+  recipient is a user who has affirmatively opted in to receive these
+  notifications.
 </p>
-<ul>
-  <li>The brand owner (Garret Holland)</li>
-  <li>Members of the brand owner's immediate household (spouse, children)</li>
-  <li>A small number of close family members who have verbally
-    consented to receive household-coordination messages (e.g.,
-    grandparents or other immediate relatives added to a kids'
-    sports-schedule alert). The list is bounded by family
-    relationship and is never expanded to anyone outside of family.</li>
-</ul>
 <p>
-  The current recipient count is approximately 4, with modest
-  expansion expected over time as additional family members opt in
-  for household coordination. There are no external users,
-  customers, or commercial recipients.
+  The program is low-volume and notification-only. No marketing or
+  promotional content is ever sent.
 </p>
 
-<h2>How recipients opt in</h2>
+<h2>How users opt in</h2>
 <p>
-  Because the program is strictly limited to the brand owner's
-  immediate household plus a small number of close family members,
-  there is no public sign-up form, no SMS-keyword opt-in, and no
-  paper sign-up. Opt-in is collected
+  There is no public SMS-keyword sign-up and no paper sign-up. Users
+  opt in <strong>directly, in person,</strong> when they are onboarded
+  to the application. Opt-in is collected
   <strong>verbally and in person</strong> by the brand owner from
   each prospective recipient. Before the recipient's phone number is
   added to the application's secret store, the brand owner verbally
@@ -114,13 +103,13 @@
   <li><strong>Service health alerts and periodic summaries</strong>
     — daily-digest excerpts, anomaly notices, structural cashflow
     warnings.</li>
-  <li><strong>Household coordination messages</strong> — calendar
-    reminders, schedule changes, family logistics shared with
-    household members.</li>
+  <li><strong>Schedule and event reminders</strong> — calendar
+    reminders, schedule changes, and event logistics sent to
+    opted-in users.</li>
 </ol>
 <p>
-  <strong>Embedded links.</strong> Some household-coordination
-  messages include hyperlinks to help recipients navigate to event
+  <strong>Embedded links.</strong> Some schedule/event reminders
+  include hyperlinks to help recipients navigate to event
   locations, open calendar events, or read public information
   posted by a sports league, a tournament organizer, a school, or
   a parks department. Permitted link types: map locations (Google
@@ -130,7 +119,7 @@
   <code>https://waze.com/ul/&hellip;</code>); calendar event links
   (Google Calendar via <code>https://calendar.google.com/&hellip;</code>
   or Apple iCloud-shared events); and public non-commercial
-  webpages relevant to household logistics (e.g., a kids' sports
+  webpages relevant to event logistics (e.g., a sports
   league schedule page, a tournament bracket page, a school event
   or early-dismissal page, a parks-department field-status page).
   The program does NOT use public URL shorteners
@@ -155,7 +144,7 @@
 <p>
   Recipient phone numbers live in Google Secret Manager
   (<code>garret-phone-number</code> and analogous secrets for
-  household members). They are mounted as environment variables on
+  other opted-in users). They are mounted as environment variables on
   the Cloud Run service / jobs at runtime. Numbers are never logged,
   never written to disk, and never appear in scratch files, terminal
   output, or chat transcripts.
@@ -201,9 +190,9 @@
     (<a href="https://www.twilio.com/legal/privacy">https://www.twilio.com/legal/privacy</a>).</li>
   <li><strong>Message frequency.</strong> Approximately 30–50
     messages per month per recipient under normal operation
-    (roughly one daily household-coordination message per
-    recipient, plus up to ~20 additional account-health alerts per
-    month directed only to the brand owner's number). Frequency may
+    (roughly one daily schedule/event reminder per recipient, plus
+    up to ~20 additional account/financial alerts per month directed
+    to the account holder's number). Frequency may
     temporarily increase during exceptional circumstances (e.g., a
     connector outage triggering several alerts in one day).</li>
   <li><strong>Message and data rates.</strong> Message and data

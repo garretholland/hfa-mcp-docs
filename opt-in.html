@@ -79,9 +79,9 @@
 <dl class="disclosure-grid">
   <dt>Program name</dt><dd><strong>hfa</strong></dd>
   <dt>Operated by</dt><dd>Garret Holland (individual sole proprietor)</dd>
-  <dt>Use case</dt><dd>Personal alerts and household-coordination SMS (low volume, mixed)</dd>
-  <dt>Recipients</dt><dd>Approximately 4 &mdash; the brand owner and members of his immediate household plus a small number of close family members. The list is bounded by family relationship and is never expanded to anyone outside of family.</dd>
-  <dt>Message types</dt><dd>Account-health alerts; one-time verification codes during re-authentication; periodic financial summaries; household coordination (calendar reminders, schedule changes, kids' sports schedule, family logistics). Some household-coordination messages contain hyperlinks to maps (Google Maps, Apple Maps, Waze), calendar events, or public informational webpages relevant to family logistics &mdash; e.g. a sports tournament bracket, a club's posted schedule, a school event page &mdash; see the <a href="#links-in-messages">Links in messages</a> section below for the full link policy.</dd>
+  <dt>Use case</dt><dd>Application notifications &mdash; account/financial alerts and schedule reminders &mdash; for hfa, a family-life-management application. Low volume, mixed.</dd>
+  <dt>Recipients</dt><dd>Users of the application who have affirmatively opted in to receive its notifications.</dd>
+  <dt>Message types</dt><dd>Account/financial alerts; one-time verification codes during re-authentication; periodic financial summaries; schedule and event reminders (calendar reminders, schedule changes, sports schedules, event logistics). Some schedule/event reminders contain hyperlinks to maps (Google Maps, Apple Maps, Waze), calendar events, or public informational webpages relevant to event logistics &mdash; e.g. a sports tournament bracket, a posted schedule, a school event page &mdash; see the <a href="#links-in-messages">Links in messages</a> section below for the full link policy.</dd>
   <dt>Message frequency</dt><dd>Approximately <strong>30&ndash;50 messages per month</strong> per recipient under normal operation. Frequency may temporarily increase during exceptional circumstances (e.g., a connector outage triggering several alerts in one day).</dd>
   <dt>Message and data rates</dt><dd><strong>Message and data rates may apply</strong> per the recipient's wireless carrier plan.</dd>
   <dt>HELP</dt><dd>Reply <strong>HELP</strong> to any message to receive brand-owner contact information.</dd>
@@ -96,25 +96,23 @@
 <p>
   This program does <strong>not</strong> have a public web sign-up form,
   a paper sign-up form, an SMS keyword opt-in (e.g. "text JOIN to ..."),
-  or any other publicly-accessible enrollment mechanism. The program is
-  strictly limited to the brand owner and members of his immediate
-  household plus close family members. There are no external users, no
-  customers, and no marketing.
+  or any other publicly-accessible enrollment mechanism. Every recipient
+  is a user of the application, onboarded directly by the operator.
+  Notifications only &mdash; no marketing or promotional content.
 </p>
 
 <p>
-  Because the recipient population is bounded by family relationship,
-  opt-in is collected <strong>verbally and in person</strong> by the
-  brand owner from each recipient before that recipient's phone number
-  is added to the application's secret store. The flow is:
+  Opt-in is collected <strong>verbally and in person</strong> by the
+  operator from each user before that user's phone number is added to
+  the application's secret store. The flow is:
 </p>
 
 <ol>
   <li>
     <strong>Verbal disclosure.</strong> The brand owner verbally tells
     the prospective recipient (paraphrasing the script below) that they
-    will be added to a personal alert system, what kinds of messages
-    they will receive, the approximate message frequency, that standard
+    will be added to the application's notifications, what kinds of
+    messages they will receive, the approximate message frequency, that standard
     message and data rates may apply, that they can opt out at any time
     by replying STOP or by asking the brand owner directly, and where
     to find the privacy policy and terms.
@@ -150,25 +148,34 @@
 <h3>Verbal disclosure script (read to each recipient before their number is added)</h3>
 
 <blockquote>
-  "I'm going to add your number to a personal alert system I run.
-  It'll text you about household coordination &mdash; calendar
-  reminders, schedule changes, kids' sports schedule, occasional
-  family logistics. Some messages will include links, like a maps
-  link for a game location, a calendar event link, or a tournament
-  or league webpage with the posted schedule. Roughly one message
-  a day, so 30 to 50 a month. You can reply STOP at any time to
-  opt out, or just tell me to remove your number and I will.
-  Standard message and data rates from your carrier apply. The
-  privacy policy and terms for the program are posted publicly at
-  garretholland.github.io/hfa-mcp-docs."
+  <p>"I'm going to tell you about hfa, an app I run for managing
+  finances and schedules, and ask if you'd like to receive its text
+  messages. It'll text you schedule and event reminders &mdash;
+  calendar reminders, schedule changes, sports schedules &mdash; and
+  account alerts like balance, budget, and bill reminders. Some
+  messages include links, like a maps link for a game location, a
+  calendar event link, or a league webpage with the posted schedule.
+  Roughly one message a day, about 30 to 50 a month. Standard message
+  and data rates from your carrier may apply. You can reply HELP at
+  any time for help, or STOP at any time to opt out. The privacy
+  policy and terms are posted publicly at
+  garretholland.github.io/hfa-mcp-docs. Do you consent to receive
+  these messages &mdash; yes or no?"</p>
 </blockquote>
+
+<p>
+  Only on an explicit "yes" is the recipient's number added. The
+  recipient then immediately receives the welcome SMS below,
+  confirming enrollment &mdash; giving them a final chance to reply
+  STOP before any other messages are sent.
+</p>
 
 <h3>Welcome SMS template (sent immediately after the recipient's number is added)</h3>
 
 <blockquote>
-  hfa: You're now subscribed to personal account-health and
-  household-coordination alerts. ~30-50 msgs/month. Reply HELP for
-  help, STOP to opt out. Msg&amp;Data rates may apply.
+  hfa: You're now subscribed to hfa account alerts and schedule
+  reminders. ~30-50 msgs/month. Reply HELP for help, STOP to opt
+  out. Msg&amp;Data rates may apply.
 </blockquote>
 
 <h2>How a recipient opts out</h2>
@@ -200,9 +207,9 @@
 <h2 id="links-in-messages">Links in messages</h2>
 
 <p>
-  Some household-coordination messages contain hyperlinks so that
+  Some schedule/event reminders contain hyperlinks so that
   recipients can navigate to event locations, open calendar events,
-  or read public information posted by a kids' sports league, a
+  or read public information posted by a sports league, a
   tournament organizer, a school, or a parks department. Permitted
   link types:
 </p>
@@ -224,7 +231,7 @@
     </ul>
   </li>
   <li>
-    <strong>Public informational webpages relevant to household logistics</strong>, including but not limited to:
+    <strong>Public informational webpages relevant to event logistics</strong>, including but not limited to:
     <ul>
       <li>Sports league schedule pages (AAU, club soccer, USSF, AYSO, Little League, etc.) on the league's own domain.</li>
       <li>Tournament organizer pages (brackets, schedules, locations, weather updates) on the tournament's own domain.</li>
@@ -232,7 +239,7 @@
       <li>Parks-department or field-association field-status / weather-cancellation pages.</li>
       <li>Coach-posted practice rosters, game-day notes, or carpool sign-ups on a publicly-accessible page.</li>
     </ul>
-    All webpage links are to publicly-accessible non-commercial pages relevant to a specific household-logistics need that the recipient already has context for.
+    All webpage links are to publicly-accessible non-commercial pages relevant to a specific event-logistics need that the recipient already has context for.
   </li>
 </ul>
 
